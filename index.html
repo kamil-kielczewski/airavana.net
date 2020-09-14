@@ -6,6 +6,31 @@
   <style>
     body { margin: 0; background: black; color: white}
 
+      .css-selector {
+    background: linear-gradient(34deg, #24f5bf, #49aca0, #031945);
+    background-size: 600% 600%;
+
+    -webkit-animation: AnimationName 12s ease infinite;
+    -moz-animation: AnimationName 12s ease infinite;
+    animation: AnimationName 12s ease infinite;
+}
+
+@-webkit-keyframes AnimationName {
+    0%{background-position:88% 0%}
+    50%{background-position:13% 100%}
+    100%{background-position:88% 0%}
+}
+@-moz-keyframes AnimationName {
+    0%{background-position:88% 0%}
+    50%{background-position:13% 100%}
+    100%{background-position:88% 0%}
+}
+@keyframes AnimationName {
+    0%{background-position:88% 0%}
+    50%{background-position:13% 100%}
+    100%{background-position:88% 0%}
+}
+      
 @keyframes rotateCon
 {
      0%   { transform: rotate(-360deg); }
@@ -93,8 +118,7 @@
 
 
 <script>
-  let scrW =  document.documentElement.clientWidth;
-let scrH = document.documentElement.clientHeight;
+
 
 let tags = ['&lt;div&gt;', '&lt;span&gt;', '&lt;body&gt;', '&lt;meta&gt;', '&lt;html&gt;' ]
 
@@ -110,7 +134,8 @@ let last=-1;
 
 function move() {
     last++;
-
+    let scrW =  document.documentElement.clientWidth;
+    let scrH = document.documentElement.clientHeight;
     let nodes = [...contentAir.children];
     let node = nodes[last%nodes.length]
     let rx=50+(Math.random()*(scrW-100)|0);
@@ -136,6 +161,9 @@ setTimeout(()=> {
 }, 10000);
     
 function circleTags(parallel) {
+  let scrW =  document.documentElement.clientWidth;
+  let scrH = document.documentElement.clientHeight;
+    
   let nodes = [...contentAir.children]
   nodes.forEach((node,i)=> {
     let rr= Math.min(scrW,scrH)/4
