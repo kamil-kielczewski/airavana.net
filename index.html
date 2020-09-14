@@ -170,7 +170,7 @@ function circleTags(parallel) {
     
   let nodes = [...contentAir.children]
   nodes.forEach((node,i)=> {
-    let rr= 20*Math.min(scrW,scrH)/100
+    let rr= 40*Math.min(scrW,scrH)/100
     let x= scrW/2 -50 - rr*Math.cos(i*2*Math.PI/(nodes.length));
     let y= scrH/2 -50 - rr*Math.sin(i*2*Math.PI/(nodes.length));
     let r= (parallel ? 90 : 0) + i*360/(nodes.length);
