@@ -4,68 +4,71 @@
     <meta charset=utf-8>
     <title>Airavana</title>
   <style>
-    body { margin: 0; background: black; color: white}
-
-      .css-selector {
-    background: linear-gradient(34deg, #24f5bf, #49aca0, #031945);
-    background-size: 600% 600%;
-
-    -webkit-animation: AnimationName 12s ease infinite;
-    -moz-animation: AnimationName 12s ease infinite;
-    animation: AnimationName 12s ease infinite;
-}
-
-@-webkit-keyframes AnimationName {
-    0%{background-position:88% 0%}
-    50%{background-position:13% 100%}
-    100%{background-position:88% 0%}
-}
-@-moz-keyframes AnimationName {
-    0%{background-position:88% 0%}
-    50%{background-position:13% 100%}
-    100%{background-position:88% 0%}
-}
-@keyframes AnimationName {
-    0%{background-position:88% 0%}
-    50%{background-position:13% 100%}
-    100%{background-position:88% 0%}
-}
+    body { 
+        margin: 0; 
+        background: black; 
+        color: white
+        font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;
       
-@keyframes rotateCon
-{
-     0%   { transform: rotate(-360deg); }
-}
+        background: linear-gradient(34deg, #24f5bf, #49aca0, #031945);
+        background-size: 600% 600%;
 
-#contentAir {
-   pointer-events: none;
-   position: fixed;  
-   transform-origin: center center;
-   width: 100vw;
-   height: 100vh;
+        -webkit-animation: AnimationName 12s ease infinite;
+        -moz-animation: AnimationName 12s ease infinite;
+        animation: AnimationName 12s ease infinite;
+    }
 
-   animation-name: rotateCon;
-   animation-duration: 8s;
-   animation-iteration-count: infinite;
-   animation-timing-function: linear;
-}
+    @-webkit-keyframes AnimationName {
+        0%{background-position:88% 0%}
+        50%{background-position:13% 100%}
+        100%{background-position:88% 0%}
+    }
+    @-moz-keyframes AnimationName {
+        0%{background-position:88% 0%}
+        50%{background-position:13% 100%}
+        100%{background-position:88% 0%}
+    }
+    @keyframes AnimationName {
+        0%{background-position:88% 0%}
+        50%{background-position:13% 100%}
+        100%{background-position:88% 0%}
+    }
 
-.content-anim {
-   animation-play-state: paused;
-}
+    @keyframes rotateCon
+    {
+         0%   { transform: rotate(-360deg); }
+    }
+
+    #contentAir {
+       pointer-events: none;
+       position: fixed;  
+       transform-origin: center center;
+       width: 100vw;
+       height: 100vh;
+
+       animation-name: rotateCon;
+       animation-duration: 8s;
+       animation-iteration-count: infinite;
+       animation-timing-function: linear;
+    }
+
+    .content-anim {
+       animation-play-state: paused;
+    }
 
 
-.anim1 {
-   position: fixed;  
-   display: flex;
-   align-items: center;
-   justify-content: center; 
-   width: 100px;
-   height: 100px;
-   transform-origin: center center;
-   transform: rotate(20deg);
-   transition: 2s;
-   color: yellow;
-}
+    .anim1 {
+       position: fixed;  
+       display: flex;
+       align-items: center;
+       justify-content: center; 
+       width: 100px;
+       height: 100px;
+       transform-origin: center center;
+       transform: rotate(20deg);
+       transition: 2s;
+       color: yellow;
+    }
 
       .logoContainer {
         display: flex;
