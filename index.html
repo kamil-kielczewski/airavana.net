@@ -11,7 +11,7 @@
      0%   { transform: rotate(-360deg); }
 }
 
-#content {
+#contentAir {
    position: fixed;  
    transform-origin: center center;
    width: 100vw;
@@ -44,7 +44,7 @@
 </head>
 <body>
   
-  <div id=content class="content-anim"></div>
+  <div id="contentAir" class="content-anim"></div>
 
 
 
@@ -54,7 +54,7 @@ let scrH = document.documentElement.clientHeight;
 
 let tags = ['&lt;div&gt;', '&lt;span&gt;', '&lt;body&gt;', '&lt;meta&gt;', '&lt;html&gt;' ]
 
-content.innerHTML= tags.map((tag,i) => `
+contentAir.innerHTML= tags.map((tag,i) => `
 <div class="anim1" style="
   margin-left:-120px; 
   margin-top:-120px;
@@ -67,7 +67,7 @@ let last=-1;
 function move() {
     last++;
 
-    let nodes = [...content.children];
+    let nodes = [...contentAir.children];
     let node = nodes[last%nodes.length]
     let rx=50+(Math.random()*(scrW-100)|0);
     let ry=50+(Math.random()*(scrH-100)|0);
@@ -84,7 +84,7 @@ let int = setInterval(move,1000);
 
 setTimeout(()=> {
   clearInterval(int);
-  let nodes = [...content.children]
+  let nodes = [...contentAir.children]
   nodes.forEach((node,i)=> {
     let rr= Math.min(scrW,scrH)/4
     let x= scrW/2 -50 - rr*Math.cos(i*2*Math.PI/(nodes.length));
@@ -98,7 +98,7 @@ setTimeout(()=> {
     `
   });
   
-  content.classList.remove('content-anim');    
+  contentAir.classList.remove('content-anim');    
 }, 10000);
   
 </script>
