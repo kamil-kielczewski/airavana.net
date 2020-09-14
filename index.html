@@ -38,6 +38,7 @@
    transform-origin: center center;
    transform: rotate(20deg);
    transition: 2s;
+   color: yellow;
 }
 
       .logoContainer {
@@ -54,6 +55,9 @@
   <div id="contentAir" class="content-anim"></div>
   <div class="logoContainer">
      <img src="black_logo_2000x550px.png" width="30%">
+      <div>Systems</div>
+      <div>Web Development</div>
+      <div>kontakt tel.: 510-367-595</div>
   </div>
 
 
@@ -93,6 +97,13 @@ let int = setInterval(move,1000);
 
 setTimeout(()=> {
   clearInterval(int);
+  
+  circleTags();
+ 
+  contentAir.classList.remove('content-anim');    
+}, 10000);
+    
+function circleTags() {
   let nodes = [...contentAir.children]
   nodes.forEach((node,i)=> {
     let rr= Math.min(scrW,scrH)/4
@@ -106,9 +117,9 @@ setTimeout(()=> {
       margin-top: ${y}px;
     `
   });
-  
-  contentAir.classList.remove('content-anim');    
-}, 10000);
+}
+    
+window.addEventListener('resize', ()=> circleTags() );
   
 </script>
 </body>
