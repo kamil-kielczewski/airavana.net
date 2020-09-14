@@ -1,1 +1,106 @@
-TEST123
+<!doctype html>
+<html lang=en>
+<head>
+    <meta charset=utf-8>
+    <title>Airavana</title>
+  <style>
+    body { margin: 0; background: black; color: white}
+
+@keyframes rotateCon
+{
+     0%   { transform: rotate(-360deg); }
+}
+
+#content {
+   position: fixed;  
+   transform-origin: center center;
+   width: 100vw;
+   height: 100vh;
+
+    animation-name: rotateCon;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+.content-anim {
+      animation-play-state: paused;
+}
+
+
+.anim1 {
+   position: fixed;  
+   display: flex;
+   align-items: center;
+   justify-content: center; 
+   width: 100px;
+   height: 100px;
+   transform-origin: center center;
+   transform: rotate(20deg);
+   transition: 2s;
+}
+
+  </style>
+</head>
+<body>
+  
+  <div id=content class="content-anim"></div>
+
+
+
+<script>
+  let scrW =  document.documentElement.clientWidth;
+let scrH = document.documentElement.clientHeight;
+
+let tags = ['&lt;div&gt;', '&lt;span&gt;', '&lt;body&gt;', '&lt;meta&gt;', '&lt;html&gt;' ]
+
+content.innerHTML= tags.map((tag,i) => `
+<div class="anim1" style="
+  margin-left:-120px; 
+  margin-top:-120px;
+">${tag}</div>
+`).join``;
+
+
+let last=-1;
+
+function move() {
+    last++;
+
+    let nodes = [...content.children];
+    let node = nodes[last%nodes.length]
+    let rx=50+(Math.random()*(scrW-100)|0);
+    let ry=50+(Math.random()*(scrH-100)|0);
+    let rr=(Math.random()*(360*10)|0);
+      
+    node.style=`
+      transform: rotate(${rr}deg);
+      margin-left: ${rx}px;
+      margin-top: ${ry}px;
+    `
+}
+
+let int = setInterval(move,1000);
+
+setTimeout(()=> {
+  clearInterval(int);
+  let nodes = [...content.children]
+  nodes.forEach((node,i)=> {
+    let rr= Math.min(scrW,scrH)/4
+    let x= scrW/2 -50 - rr*Math.cos(i*2*Math.PI/(nodes.length));
+    let y= scrH/2 -50 - rr*Math.sin(i*2*Math.PI/(nodes.length));
+    let r= i*360/(nodes.length);
+    node.classList.add("anim2");
+    node.style=`
+      transform: rotate(${r}deg);
+      margin-left: ${x}px;
+      margin-top: ${y}px;
+    `
+  });
+  
+  content.classList.remove('content-anim');    
+}, 10000);
+  
+</script>
+</body>
+</html>
