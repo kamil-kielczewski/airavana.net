@@ -12,19 +12,20 @@
 }
 
 #contentAir {
+   pointer-events: none;
    position: fixed;  
    transform-origin: center center;
    width: 100vw;
    height: 100vh;
 
-    animation-name: rotateCon;
-    animation-duration: 8s;
-    animation-iteration-count: infinite;
-    animation-timing-function: linear;
+   animation-name: rotateCon;
+   animation-duration: 8s;
+   animation-iteration-count: infinite;
+   animation-timing-function: linear;
 }
 
 .content-anim {
-      animation-play-state: paused;
+   animation-play-state: paused;
 }
 
 
@@ -48,9 +49,6 @@
         height: 100vh;
         justify-content: center;
         align-items: center;
-        transition: 2s;
-        opacity: 0;
-        font-size: 16px;
       }
       
       .logoStyle {
@@ -61,6 +59,9 @@
         display: flex;
         flex-direction: column;
         align-items: center;
+        transition: 2s;
+        opacity: 0;
+        font-size: 16px;
       }
       
       .logoInnerContainer:hover .logoStyle {
@@ -80,8 +81,8 @@
 <body>
   
   <div id="contentAir" class="content-anim"></div>
-  <div id="logo" class="logoContainer">
-    <div class="logoInnerContainer">
+  <div class="logoContainer">
+    <div id="logo" class="logoInnerContainer">
       <img src="black_logo_2000x550px.png" class="logoStyle">
       <div>SYSTEMS</div>
       <div>Web Development</div>
