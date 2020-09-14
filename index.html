@@ -83,7 +83,7 @@
   
   <div id="contentAir" class="content-anim"></div>
   <div class="logoContainer">
-    <div id="logo" class="logoInnerContainer">
+    <div id="logo" class="logoInnerContainer" onmouseenter="circleTags(true)">
       <img src="black_logo_2000x550px.png" class="logoStyle">
       <div>SYSTEMS</div>
       <div>Web Development</div>
@@ -129,19 +129,19 @@ let int = setInterval(move,1000);
 setTimeout(()=> {
   clearInterval(int);
   
-  circleTags();
+  circleTags(false);
  
   contentAir.classList.remove('content-anim');
   logo.classList.add('logoShow');
 }, 10000);
     
-function circleTags() {
+function circleTags(parallel) {
   let nodes = [...contentAir.children]
   nodes.forEach((node,i)=> {
     let rr= Math.min(scrW,scrH)/4
     let x= scrW/2 -50 - rr*Math.cos(i*2*Math.PI/(nodes.length));
     let y= scrH/2 -50 - rr*Math.sin(i*2*Math.PI/(nodes.length));
-    let r= i*360/(nodes.length);
+    let r= (parallel ? 90 : 0) + i*360/(nodes.length);
     node.classList.add("anim2");
     node.style=`
       transform: rotate(${r}deg);
@@ -151,7 +151,7 @@ function circleTags() {
   });
 }
     
-window.addEventListener('resize', ()=> circleTags() );
+window.addEventListener('resize', ()=> circleTags(false) );
   
 </script>
 </body>
