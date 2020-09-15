@@ -200,8 +200,12 @@ setTimeout(()=> {
   contentAir.classList.remove('content-anim');
   logo.classList.add('logoShow');
 }, 10000);
+   
+// on firefox body onresize is run on page initialization - in this case we need to ignore this event (first run)
+let circleTagsRunCount=0;
     
 function circleTags(parallel) {
+  if(!circleTagsRunCount) { circleTagsRunCount++; return; }
   let scrW =  document.documentElement.clientWidth;
   let scrH = document.documentElement.clientHeight;
     
