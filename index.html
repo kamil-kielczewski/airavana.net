@@ -192,9 +192,11 @@ function move() {
 
 let int = setInterval(move,1000);
 
+let circleTagsRunAllowed=false;
+    
 setTimeout(()=> {
   clearInterval(int);
-  
+  circleTagsRunAllowed = true;
   circleTags(false);
  
   contentAir.classList.remove('content-anim');
@@ -202,10 +204,11 @@ setTimeout(()=> {
 }, 10000);
    
 // on firefox body onresize is run on page initialization - in this case we need to ignore this event (first run)
-let circleTagsRunCount=0;
+
     
 function circleTags(parallel) {
-  if(!circleTagsRunCount) { circleTagsRunCount++; return; }
+  console.log('FFF')
+  if(!circleTagsRunAllowed) { return; }
   let scrW =  document.documentElement.clientWidth;
   let scrH = document.documentElement.clientHeight;
     
